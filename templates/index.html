@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my site</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+        #heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(76, 56, 41);
+        }
+        h2 {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+            font-size: 35px;
+        }
+        .form {
+            min-height: 45vh;
+            min-width: 30vh;
+            background-color: aqua;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .outer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .buttondiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            height: 1.5rem;
+            width: 5rem;
+            border: 1px solid black;
+            border-radius: 7px;
+        }
+        input {
+            height: 1.5rem;
+            border: 1px solid brown;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <h2>Fill this form</h2>
+    </div>
+    <div class="outer">
+        <div class="form">
+            <form method="POST" action="/submit">
+                <span>Username : </span>
+                <br><br>
+                <input type="text" name="username" placeholder="  Enter your username">
+                <br><br><hr><br>
+                <span>Password : </span>
+                <br><br>
+                <input type="password" name="password" placeholder="  Enter your password">
+                <br><br><br>
+                <div class="buttondiv">
+                    <button type="submit" value="Login">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

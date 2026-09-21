@@ -1,0 +1,31 @@
+A. Routes always must be unique
+B. Route names must be readable
+C. Each route function must be 'Returning' something , otherwise the app wil be crashed
+
+
+# Methods :-
+
+A) **GET** (I want some data from server)
+B) **POST** (I want to give yiu a data to process to the server)
+
+--> Always  parse sensitive data as POST not GET like passwords
+
+
+### 2 - development of dynamic pages
+
+--> jinja2 templating
+--> rendering templates
+
+# points to remember :-
+
+A) the html page which is being rendered through flask should never contain absolute or direct file paths
+   for example - <a href='index.html'>tap me</a> --- THIS IS THE WRONG WAY , user can jump through pages and session will be disturbed  complete app will be crashed.
+
+   CORRECT WAY -- <a href='/page'>Tap me</a>
+   
+   This silently parses data and session id to flask app and the route containing '/page' path will be called and maake sure that, that route's function must be doing the required work related to the page. 
+
+   (see the Action = '/submit' in index.html line 62 and then see route '/submit' in app.py line 13)
+
+B) always keep the secret session key secret like in env file and gitignore it to prevent it from being pushed
+C) always remember to put flask functioning in between two pages, to make the session continous

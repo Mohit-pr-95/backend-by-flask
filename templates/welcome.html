@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .buttonclass {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logoutlink {
+            text-decoration: none;
+            color: black;
+        }
+        .button {
+            border: 1px solid;
+            height: 1.5rem;
+            width: 4.6rem;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h2>Welcome {{ name }}</h2>
+    </div><br>
+    <div class="buttonclass">
+        <button class='button' type="button"><a class="logoutlink" href="/logout">Logout</a></button>
+    </div>
+</body>
+</html>
