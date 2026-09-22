@@ -52,3 +52,8 @@ python app.py
 - **`POST /submit`**: Processes the login form submission. If the credentials are correct, it sets a session variable and renders the welcome page. If incorrect, it displays an error message.
 - **`GET /logout`**: Clears the user's session data and redirects back to the login page.
 
+## Activated server will look like this :-
+
+<p align="center">
+  <img src="sc2.png" alt="Login Page Screenshot">
+</p>

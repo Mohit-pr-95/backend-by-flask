@@ -24,7 +24,7 @@ def submit():
 @app.route('/logout')
 def logout():
     session.pop('user')
-    return render_template('index.html')
+    return redirect(url_for('login'))
 
 if __name__ == "__main__":
     app.run(debug=True)
