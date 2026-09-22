@@ -2,6 +2,10 @@
 
 This is a beginner-friendly web application built with [Flask](https://flask.palletsprojects.com/) to demonstrate basic concepts like routing, template rendering, handling form submissions, and session management.
 
+<p align="center">
+  <img src="sc.png" width="400" alt="Login Page Screenshot">
+</p>
+
 ## Project Structure
 
 - **`app.py`**: The main entry point for the Flask application. It contains the server configuration, routing logic, and handles user authentication.
