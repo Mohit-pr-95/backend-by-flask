@@ -7,55 +7,256 @@
     <style>
         body {
             height: 100vh;
-        }
-        #heading {
+            margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: rgb(76, 56, 41);
+        }
+        #heading {
+            text-align: center;
+            color: black;
         }
         h2 {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: Sans-Serif, 'Display';
             font-weight: bolder;
-            font-size: 35px;
+            font-size: 1.8rem;
         }
         .form {
-            min-height: 45vh;
-            min-width: 30vh;
-            background-color: aqua;
-            border: 2px solid black;
-            border-radius: 10px;
+            min-height: 50vh;
+            min-width: 35vh;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 13px;
+            box-shadow: 1px 1px 5px;
             padding: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 2;
         }
         .outer {
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
         .buttondiv {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        button {
-            height: 1.5rem;
-            width: 5rem;
-            border: 1px solid black;
-            border-radius: 7px;
+        .beautiful-button {
+            height: 2.4rem;
+            width: 13rem;
+            display: inline-block;
+            background: #008080;
+            color: white;
+            font-family: "Segoe UI", sans-serif;
+            font-weight: normal;
+            font-size: 17px;
+            border: 1px solid;
+            border-radius: 18px;
+            transition: all 0.2s ease-in-out;
+        }
+        .beautiful-button:hover {
+            box-shadow: 1px 1px 4px black;
+            transform: translateY(-0.05em);
+            border: 1px solid #008080;
         }
         input {
-            height: 1.5rem;
-            border: 1px solid brown;
-            border-radius: 6px;
+            height: 1.7rem;
+            width: 13rem;
+            border: 1px solid black;
+            border-radius: 10px;
+            transition: all 0.2s normal;
+            transform: scale(1.05);
         }
+        input:hover {
+            box-shadow: 1px 1px 2px black;
+        }
+        
+        span {
+            font-weight: 700;
+        }
+
+        .container {
+            position: fixed;
+            inset: 0;          /* covers the whole viewport */
+            z-index: 0;        /* behind everything */
+            pointer-events: none; /* clicks pass through to the form */
+            overflow: hidden;
+        }
+        .container {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bubble {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25);
+            /* Center the bubble itself */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: animate_4010 8s ease-in-out infinite;
+        }
+    .bubble:nth-child(2) {
+        position: relative;
+        zoom: 0.45;
+        left: -10px;
+        top: -100px;
+        animation-delay: -4s;
+    }
+
+    .bubble:nth-child(3) {
+        position: relative;
+        zoom: 0.45;
+        right: -80px;
+        top: -300px;
+        animation-delay: -6s;
+    }
+
+    .bubble:nth-child(4) {
+        position: relative;
+        zoom: 0.35;
+        left: -120px;
+        bottom: -200px;
+        animation-delay: -3s;
+    }
+
+    .bubble:nth-child(5) {
+        position: relative;
+        zoom: 0.5;
+        left: 0px;
+        top: 200px;
+        animation-delay: -5s;
+    }
+
+    @keyframes animate_4010 {
+        0%,100% {
+            transform: translateY(-20px);
+        }
+
+        50% {
+            transform: translateY(20px);
+        }
+    }
+
+    .bubble::before {
+        content: '';
+        position: absolute;
+        top: 50px;
+        left: 45px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #fff;
+        z-index: 10;
+        filter: blur(2px);
+    }
+
+    .bubble::after {
+        content: '';
+        position: absolute;
+        top: 80px;
+        left: 80px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #fff;
+        z-index: 10;
+        filter: blur(2px);
+    }
+
+    .bubble span {
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .bubble span:nth-child(1) {
+        inset: 10px;
+        border-left: 15px solid #0fb4ff;
+        filter: blur(8px);
+    }
+
+    .bubble span:nth-child(2) {
+        inset: 10px;
+        border-right: 15px solid #ff4484;
+        filter: blur(8px);
+    }
+
+    .bubble span:nth-child(3) {
+        inset: 10px;
+        border-top: 15px solid #ffeb3b;
+        filter: blur(8px);
+    }
+
+    .bubble span:nth-child(4) {
+        inset: 30px;
+        border-left: 15px solid #ff4484;
+        filter: blur(12px);
+    }
+
+    .bubble span:nth-child(5) {
+        inset: 10px;
+        border-bottom: 10px solid #fff;
+        filter: blur(8px);
+        transform: rotate(330deg);
+    }
     </style>
 </head>
 <body>
+
+    <div class="container">
+        <div class="bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="bubble">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
     <div id="heading">
-        <h2>Fill this form</h2>
+        <h2>Welcome back</h2>
     </div>
     <div class="outer">
         <div class="form">
@@ -69,7 +270,7 @@
                 <input type="password" name="password" placeholder="  Enter your password">
                 <br><br><br>
                 <div class="buttondiv">
-                    <button type="submit" value="Login">Login</button>
+                    <button class="beautiful-button" type="submit" value="Login">Log in</button>
                 </div>
             </form>
         </div>
