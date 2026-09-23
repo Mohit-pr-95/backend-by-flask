@@ -1,20 +1,10 @@
 from flask import Flask, request, redirect, url_for, session, Response, render_template
-import os, dotenv
-import mysql.connector
+import os
 from datetime import date
 import os
 from dotenv import load_dotenv
 
-dotenv.load_dotenv()
-
-connection = mysql.connector.connect(
-    host=os.getenv('DB_host'),
-    port=int(os.getenv('DB_PORT', 3306)),
-    user=os.getenv('DB_username'),
-    password=os.getenv('DB_password'),
-    database=os.getenv('DB_name')
-)
-cursor = connection.cursor()
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('secret_code')
@@ -34,15 +24,14 @@ def submit():
         password = request.form.get('password')
         session['username'] = username
 
-        cursor.execute('select username, password from users')
-        data = cursor.fetchall()
+        users = {
+            'mohit_95' : '3434',
+            'mohish_87' : '6969',
+            'duister_px' : 'pexos'
+        }
 
-        for i in range(len(data)):
-            if data[i][0] == username and data[i][1] == password:
-                return render_template('admin.html')
-            else:
-                if i == len(data) - 1:
-                    return Response('Invalid credentials , try again', mimetype='text/plain')
+        if username in users and password == users[username]:
+            return render_template('user.html', name=username)
 
 @app.route('/logout')
 def logout():
