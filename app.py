@@ -8,10 +8,11 @@ from dotenv import load_dotenv
 dotenv.load_dotenv()
 
 connection = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password=os.getenv('password'),
-    database=os.getenv('name')
+    host=os.getenv('DB_host'),
+    port=int(os.getenv('DB_PORT', 3306)),
+    user=os.getenv('DB_username'),
+    password=os.getenv('DB_password'),
+    database=os.getenv('DB_name')
 )
 cursor = connection.cursor()
 

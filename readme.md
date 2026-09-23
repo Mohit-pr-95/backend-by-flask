@@ -15,6 +15,7 @@ This is a web application built with [Flask](https://flask.palletsprojects.com/)
   - **`login.html`**: The login page with a form that takes a username and password.
   - **`admin.html`**: The dashboard shown to authenticated users.
 - **`.env`**: Stores environment variables such as the secret key and MySQL database credentials.
+- **`requirement.txt`**: Lists all the Python dependencies required to run the application (including `gunicorn` for deployment).
 - **`flask.txt`**: Contains quick learning notes on Flask routing, HTTP methods (GET/POST), and templating.
 - **`rivision.py`**: *(Excluded from analysis)* Script containing additional revision or experimental code.
 
@@ -31,10 +32,10 @@ This is a web application built with [Flask](https://flask.palletsprojects.com/)
 
 ## Prerequisites
 
-Make sure you have Python and a local MySQL server installed. You'll also need to install the project dependencies:
+Make sure you have Python and a local MySQL server installed. You'll also need to install the project dependencies via the `requirement.txt` file:
 
 ```bash
-pip install Flask python-dotenv mysql-connector-python
+pip install -r requirement.txt
 ```
 
 ## How to Run
@@ -43,8 +44,11 @@ pip install Flask python-dotenv mysql-connector-python
 2. Ensure you have a local MySQL server running. Create a database and a `users` table with `username` and `password` columns. Insert at least one user record for testing.
 3. Ensure the `.env` file is present in the root directory and contains the following variables:
    - `secret_code`: Your Flask secret key for sessions.
-   - `name`: The name of your MySQL database.
-   - `password`: The password for your local MySQL `root` user.
+   - `DB_host`: The host of your MySQL database (e.g., localhost).
+   - `DB_PORT`: The port your MySQL database is running on (e.g., 3306).
+   - `DB_username`: The username for your MySQL database (e.g., root).
+   - `DB_password`: The password for your MySQL database.
+   - `DB_name`: The name of your MySQL database.
 4. Run the application from your terminal:
 
 ```bash
@@ -53,6 +57,8 @@ python app.py
 
 5. The server will start in debug mode. Open your web browser and go to:
    `http://127.0.0.1:5000/`
+
+*Note: For production environments, `gunicorn` is included in the requirements. You can run the application using `gunicorn app:app`.*
 
 ## Routes Info
 
