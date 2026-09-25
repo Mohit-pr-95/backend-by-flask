@@ -26,10 +26,10 @@
         .form {
             min-height: 50vh;
             min-width: 35vh;
-            background-color: white;
-            border: 1px solid black;
-            border-radius: 13px;
-            box-shadow: 1px 1px 5px;
+            background-color: transparent;
+            border: 0px solid black;
+            border-radius: 1.3rem;
+            box-shadow: 3px 3px 7px;
             padding: 10px;
             display: flex;
             justify-content: center;
@@ -73,15 +73,16 @@
             border-radius: 10px;
             transition: all 0.2s normal;
             transform: scale(1.05);
+            padding-left: 0.9rem;
         }
         input:hover {
             box-shadow: 1px 1px 2px black;
         }
         
-        span {
-            font-weight: 700;
+        label {
+            font-weight: 540;
+            font-size: 1.04rem;
         }
-
         .container {
             position: fixed;
             inset: 0;
@@ -147,11 +148,11 @@
     <div class="outer">
         <div class="form">
             <form method="POST" action="/submit">
-                <span>Username : </span>
+                <label>Username :</label>
                 <br><br>
                 <input type="text" name="username" placeholder="  Enter your username">
                 <br><br><hr><br>
-                <span>Password : </span>
+                <label>Password :</label>
                 <br><br>
                 <input type="password" name="password" placeholder="  Enter your password">
                 <br><br><br>
