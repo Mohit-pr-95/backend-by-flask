@@ -1,7 +1,6 @@
 from flask import Flask, request, redirect, url_for, session, Response, render_template
 import os
 from datetime import date
-import os
 from dotenv import load_dotenv
 
 load_dotenv()
